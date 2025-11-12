@@ -49,18 +49,6 @@ Currently focusing on **LLMs, Generative AI**, and **MLOps workflows**.
 
 ---
 
-### 📊 GitHub Stats
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=SwayamSat&show_icons=true&theme=transparent&hide_border=true&count_private=true" height="150" />
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=SwayamSat&theme=transparent&hide_border=true" height="150" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=SwayamSat&layout=compact&theme=transparent&hide_border=true" height="150" />
-</p>
-
----
 
 ### 🤝 Connect With Me
 
@@ -76,7 +64,11 @@ Currently focusing on **LLMs, Generative AI**, and **MLOps workflows**.
 ---
 
 <p align="center">
-  <img src="https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg" alt="snake animation" />
+  <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
+  <img alt="github-snake" src="github-snake.svg" />
+</picture>
 </p>
 
 ---
