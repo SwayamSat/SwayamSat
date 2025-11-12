@@ -64,11 +64,7 @@ Currently focusing on **LLMs, Generative AI**, and **MLOps workflows**.
 ---
 
 <p align="center">
-  <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="github-snake.svg" />
-  <img alt="github-snake" src="github-snake.svg" />
-</picture>
+  <img src="https://raw.githubusercontent.com/SwayamSat/SwayamSat/output/github-contribution-grid-snake-dark.svg" alt="dark snake animation" />
 </p>
 
 ---
@@ -76,4 +72,9 @@ Currently focusing on **LLMs, Generative AI**, and **MLOps workflows**.
 <p align="center">
   <i>“Data is the fuel. AI is the engine. Innovation is the road.”</i><br>
   — <b>Swayam Satpathy</b>
+</p>
+
+<!-- Footer gradient -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8E2DE2,100:2F80ED&height=100&section=footer" />
 </p>
