@@ -1,11 +1,10 @@
 name: Generate contribution snake (dark + light)
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 1 * * *' # daily at 01:00 UTC
-  workflow_dispatch:
 
-# Request write permission for contents
 permissions:
   contents: write
 
@@ -17,42 +16,40 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true   # allow subsequent git push to use GITHUB_TOKEN
+          persist-credentials: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate snake SVGs
+      - name: Debug env (for troubleshooting)
+        run: |
+          echo "GITHUB_REPOSITORY=${GITHUB_REPOSITORY}"
+          echo "GITHUB_REPOSITORY_OWNER=${GITHUB_REPOSITORY_OWNER}"
+          echo "GITHUB_ACTOR=${GITHUB_ACTOR}"
+          echo "GITHUB_WORKFLOW=${GITHUB_WORKFLOW}"
+
+      - name: Generate snake SVGs (explicit username + token)
         uses: Platane/snk@v3
         id: snake
         with:
+          # outputs (one per line)
           outputs: |
             output/github-contribution-grid-snake-dark.svg?palette=github-dark
             output/github-contribution-grid-snake.svg?palette=github
+          github_user_name: SwayamSat
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Show output files (debug)
+      - name: Show output files
         run: ls -la output || echo "no output folder"
 
-      - name: Commit and push generated files (authenticated)
+      - name: Commit and push generated files
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Configure an author (github-actions bot)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Add files
           git add -A output || true
-
-          # Only commit if there are changes
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-
           git commit -m "chore: update snake animation"
-
-          # Option A: push to main (default). Works if actions have write & branch allows pushes.
           git push origin HEAD:main
-
-          # Option B: (safer when main is protected) push to 'output' branch
-          # Uncomment the next lines and comment the git push above if you prefer pushing to separate branch.
-          # git push origin HEAD:output --force
